@@ -1,0 +1,212 @@
+<!--Esta es otra carta de prueba, la original es index.html-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Cromo TutoZ</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='mainprueba.css'>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-color: #eee;
+    }
+
+    .card {
+        position: relative;
+        width: 300px;
+        height: 450px;
+        perspective: 1000px;
+    }
+
+    .face {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+        backface-visibility: hidden;
+        transition: transform 0.6s;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        padding: 15px;
+        box-sizing: border-box;
+    }
+
+    .front {
+        background-image: -webkit-linear-gradient(bottom,rgb(0, 0, 0),gold);
+        transform: rotateY(0deg);
+        z-index: 2;
+        border: 2px solid black;
+    }
+
+    .back {
+        color: white;
+        transform: rotateY(180deg);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        background-position: center; 
+        background-image: url(images/atras.png);
+    }
+
+    .card:hover .front {
+        transform: rotateY(180deg);
+    }
+
+    .card:hover .back {
+        transform: rotateY(360deg);
+    }
+
+    .top-bar {
+        display: flex;
+        align-items: center;
+        position: relative;
+        margin-bottom: 10px;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .hexagon {
+        width: 125px;
+        height: 40px;
+        background-color: rgb(255, 255, 255);
+        position: relative;
+        clip-path: polygon(0% 0%, 100% 0%, 100% 1%, 80% 100%, 0% 100%, 0% 0%);
+        border: 2px solid rgb(0, 0, 0);
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+    }
+
+    .hexagon2 {
+        width: 125px;
+        height: 40px;
+        background-color: rgb(255, 255, 255);
+        position: relative;
+        clip-path: polygon(100% 0%, 100% 0%, 100% 0%, 100% 100%, 18% 100%, 0% 0%);
+        border: 2px solid black;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+    }
+
+    .name-box {
+        position: absolute;
+        left: 0;
+        top: 5px;
+    }
+
+    .stars-box {
+        position: absolute;
+        right: 0;
+        top: 5px;
+    }
+
+    .center-number {
+        font-size: 22px;
+        font-weight: bold;
+        position: absolute;
+        top: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .image-box {
+        border: none;
+        background: none;
+        margin-bottom: 10px;
+        overflow: hidden;
+        margin-top: 65px;
+    }
+
+    .image-box img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        display: block;
+        border: 2px solid #000000;
+    }
+
+    .cardtype-box, .stats-box {
+        border: 2px solid #000000;
+        padding: 8px;
+        border-radius: 5px;
+        background-color: #f4f4f4;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .stats {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        font-size: 20px;
+        font-weight: bold;
+        margin-top: 0px;
+    }
+
+    .description {
+        font-size: 16px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .artist, .bottom-text {
+        font-size: 14px;
+        font-weight: bold;
+        text-align: center;
+        margin-top: 5px;
+    }
+</style>
+<body>
+
+    <div class="card">
+        <div class="face front">
+            <div class="top-bar">
+                <div class="hexagon name-box">Nombre</div>
+                <div class="center-number">1</div>
+                <div class="hexagon2 stars-box">⭐⭐⭐</div>
+            </div>
+
+            <div class="image-box">
+                <img src="/images/ejemplo.png" width="300" height="180" alt="Imagen del cromo">
+            </div>
+
+            <div class="cardtype-box">
+                <div class="cardtype">Atributo</div>
+            </div>
+
+            <div class="stats-box">
+                <div class="stats">
+                    <div>Power:⚡⚡⚡⚡</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="face back">
+            <div class="description">Esto es mi descripción de la carta, aquí podrás poner todo tipo de información, habilidades, etc.</div>
+            <div class="artist">ARTISTA</div>
+            <div class="bottom-text">Tu nombre</div>
+        </div>
+    </div>
+
+</body>
+</html>
