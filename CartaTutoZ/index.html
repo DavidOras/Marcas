@@ -9,166 +9,133 @@
 </head>
 <style>
     * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
 
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #eee;
-}
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-color: #eee;
+    }
 
-.card {
-    position: relative;
-    width: 300px;
-    height: 450px;
-    perspective: 1000px;
-}
+    .card {
+        position: relative;
+        width: 300px;
+        height: 500px;
+        border-radius: 10px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        background-image: -webkit-linear-gradient(bottom, black, gold);
+        padding: 15px;
+        box-sizing: border-box;
+    }
 
-.face {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-    backface-visibility: hidden;
-    transition: transform 0.6s;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-    padding: 15px;
-    box-sizing: border-box;
-}
+    .top-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border: 2px solid #000000;
+        padding: 5px 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+    }
 
-.front {
-    background-image: -webkit-linear-gradient(bottom,black,gold);
-    transform: rotateY(0deg);
-    z-index: 2;
-}
+    .name, .mana-stars, .number {
+        font-size: 18px;
+        font-weight: bold;
+    }
 
-.back {
-    color: white;
-    transform: rotateY(180deg);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-}
+    .image-box {
+        margin-bottom: 10px;
+        overflow: hidden;
+    }
 
-.card:hover .front {
-    transform: rotateY(180deg);
-}
+    .image-box img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        border: 2px solid #000000;
+    }
 
-.card:hover .back {
-    transform: rotateY(360deg);
-}
+    .cardtype-box {
+        border: 2px solid #000000;
+        padding: 8px;
+        margin-top: 5px;
+        border-radius: 5px;
+        background-color: #f4f4f4;
+        text-align: center;
+        margin-bottom: 10px;
+    }
 
-.top-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border: 2px solid #000000;
-    padding: 5px 10px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-}
+    .stats-box {
+        border: 2px solid #000000;
+        padding: 8px;
+        border-radius: 5px;
+        background-color: #f4f4f4;
+        margin-bottom: 10px;
+    }
 
-.name, .mana-stars, .bolts {
-    font-size: 18px;
-    font-weight: bold;
-}
+    .stats {
+        display: flex;
+        justify-content: center;
+        font-size: 16px;
+        font-weight: bold;
+    }
 
-.name, .mana-stars{
-    margin-top: 6px;
-}
+    .description {
+        font-size: 16px;
+        text-align: center;
+        margin-bottom: 10px;
+        border: 2px solid #000000;
+        padding: 8px;
+        border-radius: 5px;
+        background-color: #f4f4f4;
+    }
 
-.image-box {
-    border: none;
-    background: none;
-    margin-bottom: 10px;
-    border-radius: 0;     
-    overflow: hidden;
-}
-
-.image-box img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    display: block;
-    border: 2px solid #000000;
-}
-
-.cardtype-box {
-    border: 2px solid #000000;
-    padding: 8px;
-    margin-top: 5px;
-    border-radius: 5px;
-    background-color: #f4f4f4;
-    text-align: center;
-    margin-bottom: 10px;
-}
-
-.stats-box {
-    border: 2px solid #000000;
-    padding: 8px;
-    border-radius: 5px;
-    background-color: #f4f4f4;
-}
-
-.stats {
-    display: flex;
-    justify-content: space-between;
-    font-size: 16px;
-    font-weight: bold;
-}
-
-.description {
-    font-size: 16px;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.artist, .bottom-text {
-    font-size: 14px;
-    font-weight: bold;
-    text-align: center;
-    margin-top: 5px;
-}
-
+    .bottom-bar {
+        display: flex;
+        justify-content: space-between;
+        font-size: 14px;
+        font-weight: bold;
+        color: gold;
+        margin-top: 20px;
+    }
 </style>
 <body>
 
     <div class="card">
-        <div class="face front">
-            <div class="top-bar">
-                <div class="name">Nombre</div>
-                <div class="mana-stars">⭐⭐⭐</div>
-            </div>
+        <div class="top-bar">
+            <div class="name">Nombre</div>
+            <div class="number">1</div>
+            <div class="mana-stars">⭐⭐⭐</div>
+        </div>
 
-            <div class="image-box">
-                <img src="/images/ejemplo.png" width="300" height="180" alt="Imagen del cromo">
-            </div>
+        <div class="image-box">
+            <img src="/images/ejemplo.png" alt="Imagen del cromo">
+        </div>
 
-            <div class="cardtype-box">
-                <div class="cardtype">Atributo</div>
-            </div>
+        <div class="cardtype-box">
+            <div class="cardtype">Atributo</div>
+        </div>
 
-            <div class="stats-box">
-                <div class="stats">
-                    <div>Power:⚡⚡⚡⚡</div>
-                    <div>Number: 1</div>
-                </div>
+        <div class="stats-box">
+            <div class="stats">
+                <div>Power:⚡⚡⚡⚡</div>
             </div>
         </div>
 
-        <div class="face back" style="background-position: center; background-image: url(images/atras.png);">
-            <div class="description">Esto es mi descripción de la carta, aquí podrás poner todo tiepo de información, habilidades, etc.</div>
-            <div class="artist">ARTISTA</div>
-            <div class="bottom-text">Tu nombre</div>
+        <div class="description">
+            Esto es mi descripción de la carta, aquí podrás poner todo tipo de información, habilidades, etc.
+        </div>
+
+        <div class="bottom-bar">
+            <div>ARTISTA</div>
+            <div>TU NOMBRE</div>
         </div>
     </div>
 
