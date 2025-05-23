@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cuaderno de Bitácora</title>
+  <link rel="stylesheet" href="estilo.css" />
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <link rel="icon" href="/images/favicon.png" type="image/png">
+</head>
+<body>      
+  <nav class="navbar">
+    <div class="navbar-container">
+      <div class="logo">Bitácora</div>
+      <input type="checkbox" id="menu-toggle" />
+      <label for="menu-toggle" class="menu-icon">&#9776;</label>
+      <ul class="menu">
+        <li><a href="#">Inicio</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="day" data-aos="fade-left">
+    <h2>Día 1</h2>
+    <div class="section">
+      <div class="label">Mañana:</div>
+      <textarea class="textarea" data-day="1" data-time="manana"> Adrian: comprobamos las tareas y las repartimos me encargaré de la red tanto en packet tracer como en fisico , tambien ayude a buscar un juego lo cual se nos dificulta por que no encontramos opciones con la base de datos del juego liberada 
+
+        Jorge:  las tareas y las repartimos, Ayude tanto al packet tracer como me encargue de la búsqueda del juego y testeos de los mismos teniendo en cuenta 5 probados de los cuales solo funcionaba correctamente 1 por la fluidez de la máquina virtual pero no tenía base de datos lo cual nos lo pone complicado
+        
+        Gonzalo-Instalación de Debian Servidor, descarga de Guest Additions, configuración de red estática y demás, instalación de server ssh y complementos, instalación de sqlite y comienzo de página web de cuaderno de bitácora.
+        
+        Oras- Buscar información de ayuda para crear el servidor para Gonzalo, modificar o mejorar la página Web, ayudar a buscar el juego e ir instalándolo, crear la máquina cliente.
+        </textarea>
+    </div>
+    <div class="section">
+      <div class="label">Tarde:</div>
+      <textarea class="textarea" data-day="1" data-time="tarde">Adrian : 
+        Tenía la red casi acabada pero uno de los routers daba errores así que me quede reconfigurando. 
+        
+        Gonzalo:Descarga de servidor de primer juego y pruebas con la base de datos y el juego.
+        </textarea>
+    </div>
+    <button class="save-button save-right">Guardar</button>
+  </div>
+
+  <div class="day" data-aos="fade-right">
+    <h2>Día 2</h2>
+    <div class="section">
+      <div class="label">Mañana:</div>
+      <textarea class="textarea" data-day="2" data-time="manana">Adrian: comprobar que la red funciona configurando físicamente un router y conectándolo a todos los sistemas para que el router emitiera señal a todas las máquinas  , fue funcional ,el servidor logró abrir sin problema 
+        Gonzalo:Mañana me puse con la página web ya que mi maquina virtual tenia fallos con el internet desde casa.
+        
+        Jorge:  Comprobación de conexión del juego y ayuda en la configuración del router, Testeo envio paquetes packet tracer y ver posibles modificaciones ya que no había conexión entre router final y pcs
+        
+        Oras: Comprobación de conexión del juego, mejoras en la página Web, intento de instalación de nuevos juegos.
+        </textarea>
+    </div>
+    <div class="section">
+      <div class="label">Tarde:</div>
+      <textarea class="textarea" data-day="2" data-time="tarde">Gonzalo: Intente solucionar los problemas de red que tenía y probé otro juego para ver como funcionaba con la parte de almacenar los datos en un base de datos de sqlite.
+      </textarea>
+    </div>
+    <button class="save-button save-left">Guardar</button>
+  </div>
+
+  <div class="day" data-aos="fade-left">
+    <h2>Día 3</h2>
+    <div class="section">
+      <div class="label">Mañana:</div>
+      <textarea class="textarea" data-day="3" data-time="manana">Adrián: la red estaba errónea , las ip de todos los ordenadores y el router estaban mal, un reset al router y varias reconfiguraciones después logramos entre todos recuperar la red correctamente .
+
+        nos pusieron un desafío , lograr que personas de otros grupos a nuestra elección pudieran jugar a nuestro juego desde sus máquinas virtuales , aún no se logró
+        
+        Gonzalo:Cambiar la configuración de red de la máquina virtual y terminar la parte de que el juego almacenará los datos de las partidas en lo de sqlite.
+        
+        Jorge: Probamos un juego nuevo para poner la base de datos, 
+        
+        Oras: Instalación del nuevo juego, cambio de red, conexión con el router, revisión de la página web, creación del estudio previo de requisitos.
+        </textarea>
+    </div>
+    <div class="section">
+      <div class="label">Tarde:</div>
+      <textarea class="textarea" data-day="3" data-time="tarde"></textarea>
+    </div>
+    <button class="save-button save-right">Guardar</button>
+  </div>
+
+  <script>
+    AOS.init({ duration: 1000, once: true });
+
+    function guardarDatos(day) {
+      const textos = document.querySelectorAll(`.textarea[data-day="${day}"]`);
+      textos.forEach(textarea => {
+        const key = `bitacora-dia${day}-${textarea.dataset.time}`;
+        localStorage.setItem(key, textarea.value);
+      });
+    }
+
+    function cargarDatos() {
+      const textareas = document.querySelectorAll('.textarea');
+      textareas.forEach(textarea => {
+        const day = textarea.dataset.day;
+        const time = textarea.dataset.time;
+        const key = `bitacora-dia${day}-${time}`;
+        const saved = localStorage.getItem(key);
+        if (saved) textarea.value = saved;
+      });
+    }
+
+    document.querySelectorAll('.save-button').forEach((button, index) => {
+      button.addEventListener('click', () => {
+        guardarDatos(index + 1);
+        alert(`Datos del Día ${index + 1} guardados correctamente.`);
+      });
+    });
+
+    window.addEventListener('DOMContentLoaded', cargarDatos);
+  </script>
+</body>
+</html>

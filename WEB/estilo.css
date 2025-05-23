@@ -1,0 +1,165 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: rgb(240, 244, 255);
+}
+
+h1 {
+    text-align: center;
+    padding: 50px 20px 20px;
+    font-size: 2.5em;
+    color: #0b3c5d;
+}
+
+.navbar {
+    background: linear-gradient(to right, #0b3c5d, #ffffff);
+    padding: 15px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.logo {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: white;
+}
+
+.menu-icon {
+    display: none;
+    font-size: 2em;
+    color: #0b3c5d;
+    cursor: pointer;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.menu li a {
+    color: #0b3c5d;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: background 0.3s, color 0.3s;
+}
+
+.menu li a:hover {
+    background-color: rgba(11, 60, 93, 0.1);
+    color: #0b3c5d;
+}
+
+#menu-toggle {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .menu {
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: -100%;
+        background: linear-gradient(to bottom, #0b3c5d, #ffffff);
+        width: 100%;
+        transition: left 0.3s ease;
+        padding: 20px 0;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    #menu-toggle:checked + .menu-icon + .menu {
+        left: 0;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    .menu li {
+        text-align: center;
+        padding: 10px 0;
+    }
+}
+
+
+.day {
+    background: #fff;
+    margin: 30px auto;
+    padding: 20px;
+    border-radius: 15px;
+    max-width: 800px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border: 2px solid #0b3c5d;
+}
+
+h2 {
+    color: #0b3c5d;
+    margin-bottom: 15px;
+}
+
+.section {
+    margin-bottom: 20px
+}
+
+.label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    display: block;
+    color: #444;
+}
+
+.textarea {
+    width: 100%;
+    height: 120px;
+    border: 1px solid #ccc;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 16px;
+    box-sizing: border-box;
+    resize: vertical;
+    transition: border 0.3s;
+    border: 2px solid #0b3c5d;
+
+}
+
+.textarea:focus {
+    border-color: #0b3c5d;
+    outline: none;
+}
+
+.save-button{
+    background-color: white;
+    border: 2px solid #0b3c5d;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.save-button:hover {
+    background-color: #def0fa;
+  }
+
+.save-left{
+    display: block;
+    margin-right: auto;
+}
+
+.save-right {
+    display: block;
+    margin-left: auto;
+  }
